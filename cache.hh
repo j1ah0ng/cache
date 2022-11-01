@@ -17,6 +17,11 @@ template <CacheMode mode> class Cache;
 
 template <> class Cache<CacheMode::kAssociative> {
 public:
+  /***
+   * @param log_num_lines log-2 of the number of lines in the cache
+   * @param set_bits number of bits for set index
+   * @param associativity the associativity of the cache
+   * */
   Cache(int log_num_lines, int set_bits, int associativity)
       : log_num_lines_{log_num_lines}, set_bits_{set_bits},
         associativity_{associativity} {}
