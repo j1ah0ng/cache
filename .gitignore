@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# ignore all bazel- symlinks
+/bazel-*
+
+
+# ignore compile commands database
+compile_commands.json
+
+# ignore user bazelrc file
+user.bazelrc
+
+# ignore clangd cache
+.cache/
