@@ -78,6 +78,15 @@ public:
 
 template <CacheMode mode> class Cache;
 
+template <> class Cache<CacheMode::kFullyAssociative> : private CacheBase {
+public:
+  Cache(int log_num_lines) : CacheBase{log_num_lines} {}
+  CacheResult lookup(int query) {
+    auto full_hit = full(query);
+    return (full_hit) ? CacheResult::kHit : CacheResult::kCapacity;
+  }
+};
+
 template <> class Cache<CacheMode::kDirectMapped> : private CacheBase {
 public:
   /***
